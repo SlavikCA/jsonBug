@@ -17,7 +17,7 @@ println JsonOutput.prettyPrint(JsonOutput.toJson(baseContext))
 RESTClient http = new RESTClient('https://requestinspector.com')
 http.post(
         path: "/inspect/01dh7rs82be884ke89jcny061e",
-        body: baseContext,
+        body: baseContext,  //  if I use baseContextJSON here - correct JSON would be sent
         query: null,
         requestContentType: JSON
 )
