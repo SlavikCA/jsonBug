@@ -7,7 +7,9 @@ import static groovyx.net.http.ContentType.JSON
 
 def jsonSlurper = new JsonSlurper()
 
-String baseContextJSON = new File('defaultContextV2.json').text
+// if you replace `function` on next line to any other word - it will work correctly
+String baseContextJSON = '{ "afterResponse": "function (getParam, setParam, genInfo) { }" }'
+
 def baseContext = jsonSlurper.parseText(baseContextJSON)
 
 println JsonOutput.prettyPrint(JsonOutput.toJson(baseContext))
@@ -19,3 +21,13 @@ http.post(
         query: null,
         requestContentType: JSON
 )
+
+/*
+
+results in POST request with invalid JSON:
+
+{"afterResponse":function(getParam,setParam,genInfo){}}
+
+Note missing quote around function.
+
+*/
