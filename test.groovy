@@ -30,4 +30,7 @@ results in POST request with invalid JSON:
 
 Note missing quote around function.
 
+see actual received payloads here:
+https://requestinspector.com/p/01dh7rs82be884ke89jcny061e 
+
 */
